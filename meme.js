@@ -12,6 +12,9 @@ exports.run = async (client, message, args) => {
         if(index != -1) {
             return message.channel.send("This link is already stored in the meme database!");
         }
+        if(meme.substring(0, 8) !== "https://") {
+            return message.channel.send("This isn't a valid link!");
+        }
         array.push(meme);
         db.set("memes", array);
         message.delete();
