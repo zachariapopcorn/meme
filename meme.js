@@ -37,6 +37,9 @@ exports.run = async (client, message, args) => {
     if(array.length == 0) {
         return message.channel.send(`There are no memes :( Why don't you add one with ${client.config.prefix}meme add <meme>?`);
     }
-    let index3 = Math.round(Math.random() * array.length - 1);
+    let index3 = Math.round(Math.random() * array.length);
+    if(index3 != 0) {
+        index--;
+    }
     return message.channel.send(array[index3]);
 }
