@@ -1,4 +1,5 @@
 const db = require('../db.js');
+require('dotenv').config();
 
 exports.run = async (client, message, args) => {
     let array = await db.get("memes") || [];
@@ -35,7 +36,7 @@ exports.run = async (client, message, args) => {
         return message.channel.send("Removed meme!");
     }
     if(array.length == 0) {
-        return message.channel.send(`There are no memes :( Why don't you add one with ${client.config.prefix}meme add <meme>?`);
+        return message.channel.send(`There are no memes :( Why don't you add one with ${process.env.prefix}meme add <meme>?`);
     }
     let index3 = Math.round(Math.random() * array.length);
     if(index3 != 0) {
